@@ -8,9 +8,9 @@ namespace ApiQL.Schema.Types {
         public ArtistType()
         {
             this.Name = "Artist";
-            Field(_ => _.Id).Description("Id del autor");
-            Field(_ => _.Gender).Description("Genero musical de autor");
-            Field(_ => _.Name).Description("Nombre del autor");
+            Field(_ => _.Id).Description("Id of author");
+            Field(_ => _.Gender).Description("Gender musical of author");
+            Field(_ => _.Name).Description("Name of author");
         }
     
     }
