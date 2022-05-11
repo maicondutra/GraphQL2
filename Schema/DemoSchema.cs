@@ -7,7 +7,7 @@ namespace ApiQL.Schema {
     public class DemoSchema : GraphQL.Types.Schema, GraphQL.Types.ISchema {
         public DemoSchema(IServiceProvider serviceProvider) : base(serviceProvider) 
         {
-            Query = serviceProvider.GetService<ArtistaQuery>();
+            Query = serviceProvider.GetService<ArtistQuery>();
         }
     }
 }

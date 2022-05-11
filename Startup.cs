@@ -36,10 +36,10 @@ namespace ApiQL
         {
             services.AddTransient<IDocumentExecuter, DocumentExecuter>();
             services.AddTransient<IDocumentWriter, DocumentWriter>();
-            services.AddTransient<ArtistaService>();
-            services.AddSingleton<ArtistaRepository>();
-            services.AddTransient<ArtistaQuery>();
-            services.AddTransient<ArtistaType>();
+            services.AddTransient<ArtistService>();
+            services.AddSingleton<ArtistRepository>();
+            services.AddTransient<ArtistQuery>();
+            services.AddTransient<ArtistType>();
             services.AddTransient<AlbumType>();          
             services.AddSingleton<DemoSchema>();
             services.AddGraphQL().AddSystemTextJson(cfg => {}, serializerSettings => {})

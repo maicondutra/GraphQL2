@@ -6,61 +6,61 @@ using ApiQL.Models;
 namespace ApiQL.Services
 {
 
-    public class ArtistaRepository
+    public class ArtistRepository
     {
 
-        private readonly List<Artista> _artistas;
+        private readonly List<Artist> _Artists;
         private readonly List<Album> _albums;
-        public ArtistaRepository()
+        public ArtistRepository()
         {
-            _artistas = new List<Artista>();
+            _Artists = new List<Artist>();
             _albums = new List<Album>();
-            _artistas.Add(new Artista
+            _Artists.Add(new Artist
             {
-                Nombre = "Diomedes Diaz",
-                Genero = "Vallenato",
+                Name = "Diomedes Diaz",
+                Gender = "Vallenato",
                 Id = Guid.NewGuid()
             });
 
-            _artistas.Add(new Artista
+            _Artists.Add(new Artist
             {
-                Nombre = "Freddie Mercury",
-                Genero = "Rock",
+                Name = "Freddie Mercury",
+                Gender = "Rock",
                 Id = Guid.NewGuid()
             });
 
             _albums.Add(new Album{
-                Nombre = "Mi vida musical",
+                Name = "Mi vida musical",
                 Id = Guid.NewGuid(),
-                Artista = _artistas.Where(a => a.Nombre.Equals("Diomedes Diaz")).FirstOrDefault()
+                Artist = _Artists.Where(a => a.Name.Equals("Diomedes Diaz")).FirstOrDefault()
             });
           
             _albums.Add(new Album{
-                Nombre = "Tres Canciones",
+                Name = "Tres Canciones",
                 Id = Guid.NewGuid(),
-                Artista = _artistas.Where(a => a.Nombre.Equals("Diomedes Diaz")).FirstOrDefault()
+                Artist = _Artists.Where(a => a.Name.Equals("Diomedes Diaz")).FirstOrDefault()
             });
 
             _albums.Add(new Album{
-                Nombre = "Mr bad guy",
+                Name = "Mr bad guy",
                 Id = Guid.NewGuid(),
-                Artista = _artistas.Where(a => a.Nombre.Equals("Freddie Mercury")).FirstOrDefault()
+                Artist = _Artists.Where(a => a.Name.Equals("Freddie Mercury")).FirstOrDefault()
             });
 
             _albums.Add(new Album{
-                Nombre = "Barcelona",
+                Name = "Barcelona",
                 Id = Guid.NewGuid(),
-                Artista = _artistas.Where(a => a.Nombre.Equals("Freddie Mercury")).FirstOrDefault()
+                Artist = _Artists.Where(a => a.Name.Equals("Freddie Mercury")).FirstOrDefault()
             });
         }
 
-        public List<Artista> TodosLosArtistas() => this._artistas;
+        public List<Artist> TodosLosArtists() => this._Artists;
 
         public List<Album> TodosLosAlbums() => this._albums;
 
-        public Artista ArtistaPorId(Guid id) => this._artistas.Where(a => a.Id.Equals(id)).FirstOrDefault();
+        public Artist ArtistPorId(Guid id) => this._Artists.Where(a => a.Id.Equals(id)).FirstOrDefault();
 
-        public List<Album> AlbumsPorArtista(Guid id) => this._albums.Where(a => a.Artista.Id.Equals(id)).ToList();
+        public List<Album> AlbumsPorArtist(Guid id) => this._albums.Where(a => a.Artist.Id.Equals(id)).ToList();
 
     }
 }

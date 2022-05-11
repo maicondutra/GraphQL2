@@ -3,17 +3,17 @@ using System.Collections.Generic;
 using ApiQL.Models;
 
 namespace ApiQL.Services {
-    public class ArtistaService {
+    public class ArtistService {
 
-        private readonly ArtistaRepository _artistaRepository;
-        public ArtistaService(ArtistaRepository repository)
+        private readonly ArtistRepository _ArtistRepository;
+        public ArtistService(ArtistRepository repository)
         {
-            _artistaRepository = repository;
+            _ArtistRepository = repository;
         }
 
-        public List<Artista> ListarArtistas() => _artistaRepository.TodosLosArtistas();    
-        public List<Album> ListartAlbums() => _artistaRepository.TodosLosAlbums();
-        public List<Album> AlbumPorArtista(Guid artistaId) => _artistaRepository.AlbumsPorArtista(artistaId);
-        public Artista ArtistaPorId(Guid artistaId) => _artistaRepository.ArtistaPorId(artistaId);
+        public List<Artist> ListarArtists() => _ArtistRepository.TodosLosArtists();    
+        public List<Album> ListartAlbums() => _ArtistRepository.TodosLosAlbums();
+        public List<Album> AlbumPorArtist(Guid ArtistId) => _ArtistRepository.AlbumsPorArtist(ArtistId);
+        public Artist ArtistPorId(Guid ArtistId) => _ArtistRepository.ArtistPorId(ArtistId);
     }
 }

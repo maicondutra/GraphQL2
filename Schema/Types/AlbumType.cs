@@ -9,8 +9,8 @@ namespace ApiQL.Schema.Types {
          {
              this.Name = "album";
              Field(_ => _.Id).Description("Album id");
-             Field(_ => _.Nombre).Description("Titulo del album");  
-             Field(_ => _.Artista, type: typeof(ArtistaType)).Description("Artista del album");         
+             Field(_ => _.Name).Description("Titulo del album");  
+             Field(_ => _.Artist, type: typeof(ArtistType)).Description("Artist del album");         
          }
 
      }

@@ -3,14 +3,14 @@ using GraphQL.Types;
 
 namespace ApiQL.Schema.Types {
     
-    public class ArtistaType : ObjectGraphType<Artista> {
+    public class ArtistType : ObjectGraphType<Artist> {
     
-        public ArtistaType()
+        public ArtistType()
         {
-            this.Name = "artista";
+            this.Name = "Artist";
             Field(_ => _.Id).Description("Id del autor");
-            Field(_ => _.Genero).Description("Genero musical de autor");
-            Field(_ => _.Nombre).Description("Nombre del autor");
+            Field(_ => _.Gender).Description("Genero musical de autor");
+            Field(_ => _.Name).Description("Nombre del autor");
         }
     
     }
