@@ -1,24 +1,17 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.HttpsPolicy;
-using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using Microsoft.Extensions.Logging;
 using GraphQL.SystemTextJson;
 using GraphiQl;
 using GraphQL;
+using GraphQL.Server;
 using ApiQL.Services;
 using ApiQL.Schema.Queries;
 using ApiQL.Schema.Types;
 using ApiQL.Schema;
 using ApiQL.Filters;
-using GraphQL.Server;
 
 namespace ApiQL
 {
@@ -35,7 +28,7 @@ namespace ApiQL
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddTransient<IDocumentExecuter, DocumentExecuter>();
-            services.AddTransient<IGraphQLSerializer, >();
+            services.AddTransient<IGraphQLSerializer, GraphQLSerializer>();
             services.AddTransient<ArtistService>();
             services.AddSingleton<ArtistRepository>();
             services.AddTransient<ArtistQuery>();
@@ -43,9 +36,7 @@ namespace ApiQL
             services.AddTransient<AlbumType>();          
             services.AddSingleton<DemoSchema>();
 
-            //services.AddGraphQL().AddSystemTextJson(cfg => { }, serializerSettings => { }).AddDataLoader().AddGraphTypes(typeof(DemoSchema));
-
-            services.AddGraphQL();
+            services.AddGraphQL().AddSystemTextJson(cfg => { }, serializerSettings => { }).AddDataLoader().AddGraphTypes(typeof(DemoSchema));
             
             services.AddControllers(cfg => {
                 cfg.Filters.Add(typeof(AppExceptionFilterAttribute));
