@@ -35,15 +35,18 @@ namespace ApiQL
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddTransient<IDocumentExecuter, DocumentExecuter>();
-            services.AddTransient<IDocumentWriter, DocumentWriter>();
+            services.AddTransient<IGraphQLSerializer, >();
             services.AddTransient<ArtistService>();
             services.AddSingleton<ArtistRepository>();
             services.AddTransient<ArtistQuery>();
             services.AddTransient<ArtistType>();
             services.AddTransient<AlbumType>();          
             services.AddSingleton<DemoSchema>();
-            services.AddGraphQL().AddSystemTextJson(cfg => {}, serializerSettings => {})
-            .AddDataLoader().AddGraphTypes(typeof(DemoSchema));            
+
+            //services.AddGraphQL().AddSystemTextJson(cfg => { }, serializerSettings => { }).AddDataLoader().AddGraphTypes(typeof(DemoSchema));
+
+            services.AddGraphQL();
+            
             services.AddControllers(cfg => {
                 cfg.Filters.Add(typeof(AppExceptionFilterAttribute));
             });
