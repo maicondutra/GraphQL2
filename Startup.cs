@@ -28,7 +28,8 @@ namespace ApiQL
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddTransient<IDocumentExecuter, DocumentExecuter>();
-            services.AddTransient<IGraphQLSerializer, GraphQLSerializer>();
+            //services.AddTransient<IGraphQLSerializer, GraphQLSerializer>(); TODO: funciona apenas na versão GraphQL V5
+            services.AddTransient<IDocumentWriter, DocumentWriter>(); //TODO: funciona apenas na versão GraphQL V4
             services.AddTransient<ArtistService>();
             services.AddSingleton<ArtistRepository>();
             services.AddTransient<ArtistQuery>();
@@ -36,6 +37,7 @@ namespace ApiQL
             services.AddTransient<AlbumType>();          
             services.AddSingleton<DemoSchema>();
 
+            //TODO: Quando migrado para a versão V5 do GraphQL, esta dando erro no IDocumentWriter que só funciona na versão GraphQL V4
             services.AddGraphQL().AddSystemTextJson(cfg => { }, serializerSettings => { }).AddDataLoader().AddGraphTypes(typeof(DemoSchema));
             
             services.AddControllers(cfg => {

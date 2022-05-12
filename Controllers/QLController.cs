@@ -26,7 +26,7 @@ namespace ApiQL.Controllers
             var result = await _executer.ExecuteAsync(_ => {
                 _.Schema = _schema;
                 _.Query = query.Query;
-                _.Variables = query.Vars?.ToInputs();
+                _.Inputs = query.Vars?.ToInputs();
             });
             return result;
         }
