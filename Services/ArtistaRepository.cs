@@ -15,6 +15,8 @@ namespace ApiQL.Services
         {
             _Artists = new List<Artist>();
             _albums = new List<Album>();
+
+            //Artists
             _Artists.Add(new Artist
             {
                 Name = "Diomedes Diaz",
@@ -29,6 +31,7 @@ namespace ApiQL.Services
                 Id = Guid.NewGuid()
             });
 
+            //Albums
             _albums.Add(new Album{
                 Name = "Mi vida musical",
                 Id = Guid.NewGuid(),
