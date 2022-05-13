@@ -11,9 +11,9 @@ namespace ApiQL.Services {
             _ArtistRepository = repository;
         }
 
-        public List<Artist> ListarArtists() => _ArtistRepository.TodosLosArtists();    
-        public List<Album> ListartAlbums() => _ArtistRepository.TodosLosAlbums();
-        public List<Album> AlbumPorArtist(Guid ArtistId) => _ArtistRepository.AlbumsPorArtist(ArtistId);
-        public Artist ArtistPorId(Guid ArtistId) => _ArtistRepository.ArtistPorId(ArtistId);
+        public List<Artist> ListArtists() => _ArtistRepository.AllArtists();    
+        public List<Album> ListAlbums() => _ArtistRepository.AllAlbums();
+        public List<Album> AlbumForArtist(Guid ArtistId) => _ArtistRepository.AlbumsForArtist(ArtistId);
+        public Artist ArtistForId(Guid ArtistId) => _ArtistRepository.ArtistForId(ArtistId);
     }
 }

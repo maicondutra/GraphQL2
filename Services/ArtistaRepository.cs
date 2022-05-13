@@ -19,8 +19,8 @@ namespace ApiQL.Services
             //Artists
             _Artists.Add(new Artist
             {
-                Name = "Diomedes Diaz",
-                Gender = "Vallenato",
+                Name = "Avicii",
+                Gender = "EDM",
                 Id = Guid.NewGuid()
             });
 
@@ -33,15 +33,15 @@ namespace ApiQL.Services
 
             //Albums
             _albums.Add(new Album{
-                Name = "Mi vida musical",
+                Name = "Stories",
                 Id = Guid.NewGuid(),
-                Artist = _Artists.Where(a => a.Name.Equals("Diomedes Diaz")).FirstOrDefault()
+                Artist = _Artists.Where(a => a.Name.Equals("Avicii")).FirstOrDefault()
             });
           
             _albums.Add(new Album{
-                Name = "Tres Canciones",
+                Name = "Tim",
                 Id = Guid.NewGuid(),
-                Artist = _Artists.Where(a => a.Name.Equals("Diomedes Diaz")).FirstOrDefault()
+                Artist = _Artists.Where(a => a.Name.Equals("Avicii")).FirstOrDefault()
             });
 
             _albums.Add(new Album{
@@ -57,13 +57,13 @@ namespace ApiQL.Services
             });
         }
 
-        public List<Artist> TodosLosArtists() => this._Artists;
+        public List<Artist> AllArtists() => this._Artists;
 
-        public List<Album> TodosLosAlbums() => this._albums;
+        public List<Album> AllAlbums() => this._albums;
 
-        public Artist ArtistPorId(Guid id) => this._Artists.Where(a => a.Id.Equals(id)).FirstOrDefault();
+        public Artist ArtistForId(Guid id) => this._Artists.Where(a => a.Id.Equals(id)).FirstOrDefault();
 
-        public List<Album> AlbumsPorArtist(Guid id) => this._albums.Where(a => a.Artist.Id.Equals(id)).ToList();
+        public List<Album> AlbumsForArtist(Guid id) => this._albums.Where(a => a.Artist.Id.Equals(id)).ToList();
 
     }
 }
