@@ -65,5 +65,22 @@ namespace ApiQL.Services
 
         public List<Album> AlbumsForArtist(Guid id) => this._albums.Where(a => a.Artist.Id.Equals(id)).ToList();
 
+        public Artist AddArtist(Artist artist)
+        {
+            this._Artists.Add(artist);
+            return this._Artists.Where(a => a.Id.Equals(artist.Id)).FirstOrDefault();
+        }
+
+        public void DeleteArtist(Guid id)
+        {
+            this._Artists.Remove(this._Artists.FirstOrDefault(a => a.Id.Equals(id)));
+        }
+
+        public Artist UpdateArtist(Guid id, Artist artist)
+        {
+            this._Artists.Where(a => a.Id.Equals(id)).FirstOrDefault().Name = artist.Name;
+            this._Artists.Where(a => a.Id.Equals(id)).FirstOrDefault().Gender = artist.Gender;
+            return this._Artists.Where(a => a.Id.Equals(id)).FirstOrDefault();
+        }
     }
 }

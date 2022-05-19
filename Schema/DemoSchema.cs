@@ -8,6 +8,7 @@ namespace ApiQL.Schema {
         public DemoSchema(IServiceProvider serviceProvider) : base(serviceProvider) 
         {
             Query = serviceProvider.GetService<ArtistQuery>();
+            Mutation = serviceProvider.GetService<ArtistQuery>();
         }
     }
 }
